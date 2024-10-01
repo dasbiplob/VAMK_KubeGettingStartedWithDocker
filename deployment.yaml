@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-alpine-deployment
+  labels:
+    app: my-alpine-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-alpine-deployment
+  template:
+    metadata:
+      labels:
+        app: my-alpine-deployment
+    spec:
+      containers:
+      - name: myalpine
+        image: docker.io/library/myalpine
+        resources: {}
+        imagePullPolicy: Never
